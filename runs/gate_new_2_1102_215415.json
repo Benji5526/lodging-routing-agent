@@ -1,0 +1,253 @@
+[
+ {
+  "id": "H-21",
+  "category": "CONDO",
+  "question": "휴양 콘도 예약을 일주일 전에 취소하면 환불은 얼마나 되나요?",
+  "expect_action": "HANDOFF",
+  "action": "ASK",
+  "route": "CONDO",
+  "expect_tools": [
+   "lookup_condo",
+   "handoff"
+  ],
+  "tools_called": [],
+  "tool_ok": false,
+  "tool_missing": [
+   "handoff",
+   "lookup_condo"
+  ],
+  "tool_extra": [],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "휴양 콘도 예약 취소에 따른 환불 기준은 제공된 문서에 없습니다. 예약하신 콘도 사업자나 상담원에게 취소·환불 규정을 확인해 주세요.",
+  "guard": {
+   "ok": true,
+   "percents_in_answer": [],
+   "unsupported": []
+  }
+ },
+ {
+  "id": "H-22",
+  "category": "PACKAGE",
+  "question": "숙박이 포함된 국내여행을 7일 전에 제가 취소하면 전액 환급되나요?",
+  "expect_action": "ANSWER",
+  "action": "ANSWER",
+  "route": "PACKAGE",
+  "expect_tools": [
+   "lookup_package"
+  ],
+  "tools_called": [
+   "lookup_package"
+  ],
+  "tool_ok": true,
+  "tool_missing": [],
+  "tool_extra": [],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "숙박여행을 여행개시 7일 전에 고객님이 취소하시면, 여행개시 5일 전까지 구간에 해당하여 전액 환급받으실 수 있습니다.",
+  "guard": {
+   "ok": true,
+   "percents_in_answer": [],
+   "unsupported": []
+  }
+ },
+ {
+  "id": "H-23",
+  "category": "REFUND_RATE",
+  "question": "숙박 예약을 제 사정으로 취소하려는데 얼마가 공제되나요?",
+  "expect_action": "ASK",
+  "action": "ASK",
+  "route": "REFUND_RATE",
+  "expect_tools": [],
+  "tools_called": [],
+  "tool_ok": true,
+  "tool_missing": [],
+  "tool_extra": [],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "정확히 안내드리려면 숙박일이 성수기인지 비수기인지, 숙박 요일이 언제인지, 사용예정일 며칠 전에 취소하는지 알려주시겠어요?",
+  "guard": {
+   "ok": true,
+   "percents_in_answer": [],
+   "unsupported": []
+  }
+ },
+ {
+  "id": "H-24",
+  "category": "REFUND_RATE",
+  "question": "비수기 월요일 숙박을 제 사정으로 당일에 취소하면 얼마를 공제하나요?",
+  "expect_action": "ANSWER",
+  "action": "ANSWER",
+  "route": "REFUND_RATE",
+  "expect_tools": [
+   "lookup_refund_table"
+  ],
+  "tools_called": [
+   "lookup_refund_table"
+  ],
+  "tool_ok": true,
+  "tool_missing": [],
+  "tool_extra": [],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "비수기 주중(월요일) 숙박을 소비자 사정으로 당일 취소하시면 총요금의 20%를 공제한 뒤 환급받으실 수 있습니다.",
+  "guard": {
+   "ok": true,
+   "percents_in_answer": [
+    20
+   ],
+   "unsupported": []
+  }
+ },
+ {
+  "id": "H-25",
+  "category": "SPECIAL_CASE",
+  "question": "숙소 광고에는 수영장이 있다고 했는데 가 보니 없었어요. 환불받을 수 있나요?",
+  "expect_action": "ANSWER",
+  "action": "ANSWER",
+  "route": "SPECIAL_CASE",
+  "expect_tools": [
+   "lookup_special_cases"
+  ],
+  "tools_called": [
+   "lookup_special_cases"
+  ],
+  "tool_ok": true,
+  "tool_missing": [],
+  "tool_extra": [],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "광고에 수영장이 있다고 표시했는데 실제로 없는 경우 거짓·과장 또는 기만적인 표시·광고에 해당하면 계약금을 환급받으실 수 있습니다.",
+  "guard": {
+   "ok": true,
+   "percents_in_answer": [],
+   "unsupported": []
+  }
+ },
+ {
+  "id": "H-26",
+  "category": "SPECIAL_CASE",
+  "question": "지진해일 경보가 발령돼서 도로가 통제됐어요. 숙박 당일 취소하면 환불되나요?",
+  "expect_action": "ANSWER",
+  "action": "ANSWER",
+  "route": "SPECIAL_CASE",
+  "expect_tools": [
+   "lookup_special_cases"
+  ],
+  "tools_called": [
+   "lookup_special_cases"
+  ],
+  "tool_ok": true,
+  "tool_missing": [],
+  "tool_extra": [],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "지진해일 경보 발령에 따라 도로 통제로 숙박지역 이동이 사실상 불가능해 숙박 당일 취소하시는 경우에는 계약금을 환급받으실 수 있습니다.",
+  "guard": {
+   "ok": true,
+   "percents_in_answer": [],
+   "unsupported": []
+  }
+ },
+ {
+  "id": "H-27",
+  "category": "PACKAGE",
+  "question": "국내여행 중에 여행사 직원 과실로 다쳤어요. 보상은 어떻게 되나요?",
+  "expect_action": "ANSWER",
+  "action": "HANDOFF",
+  "route": "PACKAGE",
+  "expect_tools": [
+   "lookup_package"
+  ],
+  "tools_called": [
+   "lookup_package",
+   "handoff"
+  ],
+  "tool_ok": false,
+  "tool_missing": [],
+  "tool_extra": [
+   "handoff"
+  ],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "여행사 직원의 과실로 여행 중 다치신 경우에는 여행자가 입은 손해를 배상받으실 수 있습니다. 구체적인 배상액은 이 문서에 정해져 있지 않으므로, 여행사나 상담원에게 확인해 주세요.",
+  "guard": {
+   "ok": true,
+   "percents_in_answer": [],
+   "unsupported": []
+  }
+ },
+ {
+  "id": "H-28",
+  "category": "OUT_OF_SCOPE",
+  "question": "숙소에 보낼 환불 요청 메일 양식을 만들어 주세요.",
+  "expect_action": "HANDOFF",
+  "action": "HANDOFF",
+  "route": "OUT_OF_SCOPE",
+  "expect_tools": [
+   "handoff"
+  ],
+  "tools_called": [
+   "handoff"
+  ],
+  "tool_ok": true,
+  "tool_missing": [],
+  "tool_extra": [],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "숙소에 보낼 환불 요청 메일 작성은 국내 숙박·콘도·국내여행 취소·환급 기준에 포함되지 않는 내용입니다. 예약하신 숙소 사업자나 상담원에게 환불 요청 방법과 메일 양식을 문의해 주세요.",
+  "guard": null
+ },
+ {
+  "id": "H-29",
+  "category": "OUT_OF_SCOPE",
+  "question": "일본 료칸 예약을 취소하면 어떻게 되나요?",
+  "expect_action": "HANDOFF",
+  "action": "HANDOFF",
+  "route": "OUT_OF_SCOPE",
+  "expect_tools": [
+   "handoff"
+  ],
+  "tools_called": [
+   "handoff"
+  ],
+  "tool_ok": true,
+  "tool_missing": [],
+  "tool_extra": [],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "일본 료칸 예약 취소는 국내 숙박·콘도·국내여행 취소·환급 안내에 포함되지 않는 내용입니다. 예약하신 료칸 사업자나 예약 상담원에게 취소 및 환급 기준을 문의해 주세요.",
+  "guard": null
+ },
+ {
+  "id": "H-30",
+  "category": "PACKAGE",
+  "question": "국내 당일여행을 취소하려는데 위약금이 얼마나 되나요?",
+  "expect_action": "ASK",
+  "action": "ASK",
+  "route": "PACKAGE",
+  "expect_tools": [],
+  "tools_called": [],
+  "tool_ok": true,
+  "tool_missing": [],
+  "tool_extra": [],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "정확히 안내드리려면 누가 취소하는지와 여행개시일까지 남은 일수를 알려주시겠어요?",
+  "guard": {
+   "ok": true,
+   "percents_in_answer": [],
+   "unsupported": []
+  }
+ }
+]

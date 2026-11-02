@@ -1,0 +1,569 @@
+[
+ {
+  "id": "R-03",
+  "category": "REFUND_RATE",
+  "question": "여름 성수기 토요일 숙박인데 제 사정으로 5일 전에 취소하려고요. 얼마가 공제되나요?",
+  "expect_action": "ANSWER",
+  "action": "ANSWER",
+  "route": "REFUND_RATE",
+  "expect_tools": [
+   "lookup_refund_table"
+  ],
+  "tools_called": [
+   "lookup_refund_table"
+  ],
+  "tool_ok": true,
+  "tool_missing": [],
+  "tool_extra": [],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "성수기 주말 숙박을 소비자 사정으로 사용예정일 5일 전까지 취소하시면 총요금의 40% 공제 후 환급받으실 수 있습니다.",
+  "guard": {
+   "ok": true,
+   "percents_in_answer": [
+    40
+   ],
+   "unsupported": []
+  }
+ },
+ {
+  "id": "R-04",
+  "category": "REFUND_RATE",
+  "question": "비수기 금요일 숙박을 예약했는데 하루 전에 취소하면 어떻게 되나요?",
+  "expect_action": "ANSWER",
+  "action": "ANSWER",
+  "route": "REFUND_RATE",
+  "expect_tools": [
+   "lookup_refund_table"
+  ],
+  "tools_called": [
+   "lookup_refund_table"
+  ],
+  "tool_ok": true,
+  "tool_missing": [],
+  "tool_extra": [],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "소비자 사유로 사용예정일 1일 전에 취소하시면 총요금의 20% 공제 후 환급받으실 수 있습니다. 금요일 숙박은 비수기 주말 기준이 적용됩니다.",
+  "guard": {
+   "ok": true,
+   "percents_in_answer": [
+    20
+   ],
+   "unsupported": []
+  }
+ },
+ {
+  "id": "R-05",
+  "category": "REFUND_RATE",
+  "question": "성수기 평일 숙박을 잡아 뒀는데 숙소 사정으로 7일 전에 취소됐어요. 보상이 있나요?",
+  "expect_action": "ANSWER",
+  "action": "ANSWER",
+  "route": "REFUND_RATE",
+  "expect_tools": [
+   "lookup_refund_table"
+  ],
+  "tools_called": [
+   "lookup_refund_table"
+  ],
+  "tool_ok": true,
+  "tool_missing": [],
+  "tool_extra": [],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "숙소 사정으로 사용예정일 7일 전까지 취소된 경우, 계약금을 환급받고 총요금의 10%를 배상받으실 수 있습니다.",
+  "guard": {
+   "ok": true,
+   "percents_in_answer": [
+    10
+   ],
+   "unsupported": []
+  }
+ },
+ {
+  "id": "R-06",
+  "category": "REFUND_RATE",
+  "question": "비수기에 다음 날이 공휴일이 아닌 일요일 숙박이에요. 당일 아침에 취소하면 수수료가 얼마예요?",
+  "expect_action": "ANSWER",
+  "action": "ANSWER",
+  "route": "REFUND_RATE",
+  "expect_tools": [
+   "lookup_refund_table"
+  ],
+  "tools_called": [
+   "lookup_refund_table"
+  ],
+  "tool_ok": true,
+  "tool_missing": [],
+  "tool_extra": [],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "비수기 일요일 숙박은 주중에 해당합니다. 고객님 사정으로 당일 아침 취소하시면 총요금의 20% 공제 후 환급받으실 수 있습니다.",
+  "guard": {
+   "ok": true,
+   "percents_in_answer": [
+    20
+   ],
+   "unsupported": []
+  }
+ },
+ {
+  "id": "R-07",
+  "category": "REFUND_RATE",
+  "question": "성수기 숙박인데 예약한 지 세 시간밖에 안 됐어요. 숙박은 한 달 뒤인데 지금 취소해도 위약금이 있나요?",
+  "expect_action": "ANSWER",
+  "action": "ANSWER",
+  "route": "REFUND_RATE",
+  "expect_tools": [
+   "lookup_refund_table"
+  ],
+  "tools_called": [
+   "lookup_refund_table"
+  ],
+  "tool_ok": true,
+  "tool_missing": [],
+  "tool_extra": [],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "예약 후 24시간 이내 취소에 해당하므로, 성수기 주중·주말 여부와 관계없이 계약금을 환급받으실 수 있습니다. 따라서 위약금 공제 기준은 적용되지 않습니다.",
+  "guard": {
+   "ok": true,
+   "percents_in_answer": [],
+   "unsupported": []
+  }
+ },
+ {
+  "id": "R-08",
+  "category": "REFUND_RATE",
+  "question": "숙박이 닷새 뒤인데 지금 취소하면 몇 퍼센트 공제돼요?",
+  "expect_action": "ASK",
+  "action": "ASK",
+  "route": "REFUND_RATE",
+  "expect_tools": [],
+  "tools_called": [],
+  "tool_ok": true,
+  "tool_missing": [],
+  "tool_extra": [],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "정확히 안내드리려면 숙박일이 성수기인지 비수기인지, 그리고 숙박 요일이 언제인지 알려주시겠어요?",
+  "guard": {
+   "ok": true,
+   "percents_in_answer": [],
+   "unsupported": []
+  }
+ },
+ {
+  "id": "S-03",
+  "category": "SPECIAL_CASE",
+  "question": "제가 사는 지역에는 호우경보가 났는데 숙소 쪽은 날씨가 맑아요. 이것도 무료 취소가 되나요?",
+  "expect_action": "ANSWER",
+  "action": "ANSWER",
+  "route": "SPECIAL_CASE",
+  "expect_tools": [
+   "lookup_special_cases"
+  ],
+  "tools_called": [
+   "lookup_special_cases"
+  ],
+  "tool_ok": true,
+  "tool_missing": [],
+  "tool_extra": [],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "호우경보가 출발지나 숙박지까지의 이동 경로에 발생해 실제 이동이 불가능한 경우도 포함됩니다. 숙박 당일 취소라면 계약금을 환급받으실 수 있습니다.",
+  "guard": {
+   "ok": true,
+   "percents_in_answer": [],
+   "unsupported": []
+  }
+ },
+ {
+  "id": "S-04",
+  "category": "SPECIAL_CASE",
+  "question": "감염병 때문에 정부가 숙박시설에 폐쇄 명령을 내렸어요. 예약을 취소하면 위약금을 내야 하나요?",
+  "expect_action": "ANSWER",
+  "action": "ANSWER",
+  "route": "SPECIAL_CASE",
+  "expect_tools": [
+   "lookup_special_cases"
+  ],
+  "tools_called": [
+   "lookup_special_cases"
+  ],
+  "tool_ok": true,
+  "tool_missing": [],
+  "tool_extra": [],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "숙박시설에 시설폐쇄 행정명령이 내려 계약을 이행할 수 없는 경우, 1급 감염병 기준으로 계약을 해제하시면 위약금 없이 계약금을 환급받으실 수 있습니다. 계약내용을 변경하는 경우에도 위약금 없이 변경할 수 있습니다.",
+  "guard": {
+   "ok": true,
+   "percents_in_answer": [],
+   "unsupported": []
+  }
+ },
+ {
+  "id": "S-05",
+  "category": "SPECIAL_CASE",
+  "question": "사회적 거리두기 2.5단계로 이동자제 권고가 나온 상황이라 취소하려는데 위약금은 어떻게 되나요?",
+  "expect_action": "ANSWER",
+  "action": "ANSWER",
+  "route": "SPECIAL_CASE",
+  "expect_tools": [
+   "lookup_special_cases"
+  ],
+  "tools_called": [
+   "lookup_special_cases"
+  ],
+  "tool_ok": true,
+  "tool_missing": [],
+  "tool_extra": [],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "숙박지역에 감염병 위기경보 심각단계가 발령되고 사회적 거리두기 2.5단계에 따른 이동자제 권고로 계약 이행이 상당히 어려운 경우, 계약을 해제하면 위약금이 50% 감경됩니다. 숙박일 연기 등 계약내용 변경에 합의하시면 위약금 없이 변경할 수 있습니다.",
+  "guard": {
+   "ok": true,
+   "percents_in_answer": [
+    50
+   ],
+   "unsupported": []
+  }
+ },
+ {
+  "id": "S-06",
+  "category": "SPECIAL_CASE",
+  "question": "눈이 많이 와서 못 갈 것 같아요. 당일 취소하면 환불되죠?",
+  "expect_action": "ANSWER",
+  "action": "ANSWER",
+  "route": "SPECIAL_CASE",
+  "expect_tools": [
+   "lookup_special_cases"
+  ],
+  "tools_called": [
+   "lookup_special_cases"
+  ],
+  "tool_ok": true,
+  "tool_missing": [],
+  "tool_extra": [],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "대설 주의보·경보가 발령되어 이동하거나 숙소 이용이 사실상 불가능한 경우, 숙박 당일 취소하셔도 계약금을 환급받으실 수 있습니다. 단순히 눈이 많이 온 경우만으로는 해당 여부를 확인하기 어렵습니다.",
+  "guard": {
+   "ok": true,
+   "percents_in_answer": [],
+   "unsupported": []
+  }
+ },
+ {
+  "id": "C-03",
+  "category": "CONDO",
+  "question": "공사가 안 끝나서 예약일에 콘도를 못 쓰고 닷새 뒤에야 입실했어요. 보상은 어떻게 되나요?",
+  "expect_action": "ANSWER",
+  "action": "ANSWER",
+  "route": "CONDO",
+  "expect_tools": [
+   "lookup_condo"
+  ],
+  "tools_called": [
+   "lookup_condo"
+  ],
+  "tool_ok": true,
+  "tool_missing": [],
+  "tool_extra": [],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "공사 완공이 늦어 이용이 지연된 경우, 이용예정일부터 실제 이용 가능일까지의 지연일수에 해당하는 지연보상금을 배상받으실 수 있습니다. 지연보상금은 `(계약금 + 중도금) × 지체이율 × (이용지체일수 ÷ 365)`로 산정됩니다.",
+  "guard": {
+   "ok": true,
+   "percents_in_answer": [],
+   "unsupported": []
+  }
+ },
+ {
+  "id": "C-04",
+  "category": "CONDO",
+  "question": "휴양 콘도를 성수기 주말에 예약했는데 취소하면 몇 퍼센트가 공제되나요?",
+  "expect_action": "HANDOFF",
+  "action": "ANSWER",
+  "route": "CONDO",
+  "expect_tools": [
+   "lookup_condo",
+   "handoff"
+  ],
+  "tools_called": [
+   "lookup_condo"
+  ],
+  "tool_ok": false,
+  "tool_missing": [
+   "handoff"
+  ],
+  "tool_extra": [],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "휴양콘도미니엄업 기준에는 성수기·주말 취소 시 공제율 규정이 없습니다. 예약하신 콘도 사업자나 상담원에게 취소 약관을 확인해 주세요.",
+  "guard": {
+   "ok": true,
+   "percents_in_answer": [],
+   "unsupported": []
+  }
+ },
+ {
+  "id": "C-05",
+  "category": "CONDO",
+  "question": "콘도 이용이 3일 지연됐어요. 계약금이 20만 원, 중도금이 30만 원인데 지연보상금이 얼마인가요?",
+  "expect_action": "ANSWER",
+  "action": "ANSWER",
+  "route": "CONDO",
+  "expect_tools": [
+   "lookup_condo"
+  ],
+  "tools_called": [
+   "lookup_condo"
+  ],
+  "tool_ok": true,
+  "tool_missing": [],
+  "tool_extra": [],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "지연보상금은 **(계약금 + 중도금) × 지체이율 × (이용지체일수 ÷ 365)**로 계산됩니다. 계약금과 중도금 합계 50만 원, 3일 지연 기준으로는 **50만 원 × 지체이율 × (3 ÷ 365)**이며, 지체이율은 제공된 문서에 없어 정확한 금액은 확인이 필요합니다.",
+  "guard": {
+   "ok": true,
+   "percents_in_answer": [],
+   "unsupported": []
+  }
+ },
+ {
+  "id": "P-03",
+  "category": "PACKAGE",
+  "question": "당일치기 국내 여행을 여행사가 하루 전에 취소한다고 통보했어요. 보상이 있나요?",
+  "expect_action": "ANSWER",
+  "action": "ANSWER",
+  "route": "PACKAGE",
+  "expect_tools": [
+   "lookup_package"
+  ],
+  "tools_called": [
+   "lookup_package"
+  ],
+  "tool_ok": true,
+  "tool_missing": [],
+  "tool_extra": [],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "당일여행을 여행사가 여행개시 1일 전에 취소 통보한 경우, 계약금을 환급받고 요금의 20%를 배상받으실 수 있습니다.",
+  "guard": {
+   "ok": true,
+   "percents_in_answer": [
+    20
+   ],
+   "unsupported": []
+  }
+ },
+ {
+  "id": "P-04",
+  "category": "PACKAGE",
+  "question": "숙박 포함 국내여행을 저 때문에 하루 전에 취소하려는데 얼마를 물어야 하나요?",
+  "expect_action": "ANSWER",
+  "action": "ANSWER",
+  "route": "PACKAGE",
+  "expect_tools": [
+   "lookup_package"
+  ],
+  "tools_called": [
+   "lookup_package"
+  ],
+  "tool_ok": true,
+  "tool_missing": [],
+  "tool_extra": [],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "숙박여행을 여행자 사유로 여행개시 1일 전에 취소하시면 요금의 20%를 배상하셔야 합니다.",
+  "guard": {
+   "ok": true,
+   "percents_in_answer": [
+    20
+   ],
+   "unsupported": []
+  }
+ },
+ {
+  "id": "P-05",
+  "category": "PACKAGE",
+  "question": "숙박 패키지 출발 당일 아침에 연락도 없이 못 갔어요. 환불이 되나요?",
+  "expect_action": "ANSWER",
+  "action": "ANSWER",
+  "route": "PACKAGE",
+  "expect_tools": [
+   "lookup_package"
+  ],
+  "tools_called": [
+   "lookup_package"
+  ],
+  "tool_ok": true,
+  "tool_missing": [],
+  "tool_extra": [],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "숙박여행 패키지에 출발 당일 연락 없이 불참하신 경우, 여행자 귀책으로 요금의 30%를 배상하셔야 합니다. 따라서 전액 환급 기준은 아닙니다.",
+  "guard": {
+   "ok": true,
+   "percents_in_answer": [
+    30
+   ],
+   "unsupported": []
+  }
+ },
+ {
+  "id": "P-06",
+  "category": "PACKAGE",
+  "question": "국내 패키지 여행 중에 맡긴 짐을 잃어버렸어요. 어떻게 보상받나요?",
+  "expect_action": "ANSWER",
+  "action": "ANSWER",
+  "route": "PACKAGE",
+  "expect_tools": [
+   "lookup_package"
+  ],
+  "tools_called": [
+   "lookup_package"
+  ],
+  "tool_ok": true,
+  "tool_missing": [],
+  "tool_extra": [],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "국내 패키지 여행 중 위탁수하물이 분실된 경우에는 여행자가 입은 손해를 배상받으실 수 있습니다. 여행사에 분실 사실과 피해 내역을 제출해 보상을 요청하세요.",
+  "guard": {
+   "ok": true,
+   "percents_in_answer": [],
+   "unsupported": []
+  }
+ },
+ {
+  "id": "P-07",
+  "category": "PACKAGE",
+  "question": "국내 패키지 여행을 취소하면 위약금이 어떻게 돼요?",
+  "expect_action": "ASK",
+  "action": "ASK",
+  "route": "PACKAGE",
+  "expect_tools": [],
+  "tools_called": [],
+  "tool_ok": true,
+  "tool_missing": [],
+  "tool_extra": [],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "정확히 안내드리려면 당일여행인지 숙박여행인지, 누가 취소하는지와 여행개시일까지 남은 일수를 알려주시겠어요?",
+  "guard": {
+   "ok": true,
+   "percents_in_answer": [],
+   "unsupported": []
+  }
+ },
+ {
+  "id": "O-03",
+  "category": "OUT_OF_SCOPE",
+  "question": "제가 쓰는 숙박 앱의 자체 환불 정책은 어떻게 돼요?",
+  "expect_action": "HANDOFF",
+  "action": "HANDOFF",
+  "route": "OUT_OF_SCOPE",
+  "expect_tools": [
+   "handoff"
+  ],
+  "tools_called": [
+   "handoff"
+  ],
+  "tool_ok": true,
+  "tool_missing": [],
+  "tool_extra": [],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "숙박 앱의 자체 환불 정책은 국내 숙박·콘도·국내여행 취소·환급 기준에 포함되지 않는 내용입니다. 예약하신 숙박 앱이나 해당 상담원에게 직접 문의해 주시기 바랍니다.",
+  "guard": null
+ },
+ {
+  "id": "O-04",
+  "category": "OUT_OF_SCOPE",
+  "question": "환불을 신청하면 며칠 만에 입금되나요?",
+  "expect_action": "HANDOFF",
+  "action": "HANDOFF",
+  "route": "OUT_OF_SCOPE",
+  "expect_tools": [
+   "handoff"
+  ],
+  "tools_called": [
+   "handoff"
+  ],
+  "tool_ok": true,
+  "tool_missing": [],
+  "tool_extra": [],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "환불 신청 후 입금까지 걸리는 기간은 이 안내에서 다루지 않는 내용입니다. 예약하신 숙박업체나 예약 상담원에게 환불 처리 일정을 문의해 주세요.",
+  "guard": null
+ },
+ {
+  "id": "O-05",
+  "category": "OUT_OF_SCOPE",
+  "question": "렌터카 예약을 취소하고 싶어요. 수수료가 있나요?",
+  "expect_action": "HANDOFF",
+  "action": "HANDOFF",
+  "route": "OUT_OF_SCOPE",
+  "expect_tools": [
+   "handoff"
+  ],
+  "tools_called": [
+   "handoff"
+  ],
+  "tool_ok": true,
+  "tool_missing": [],
+  "tool_extra": [],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "렌터카 예약 취소 및 수수료는 국내 숙박·콘도·국내여행 취소·환급 안내에 포함되지 않는 내용입니다. 예약하신 렌터카 사업자나 상담원에게 취소 가능 여부와 수수료를 문의해 주세요.",
+  "guard": null
+ },
+ {
+  "id": "O-06",
+  "category": "OUT_OF_SCOPE",
+  "question": "예약한 숙소 체크인 시간이 몇 시예요?",
+  "expect_action": "HANDOFF",
+  "action": "HANDOFF",
+  "route": "OUT_OF_SCOPE",
+  "expect_tools": [
+   "handoff"
+  ],
+  "tools_called": [
+   "handoff"
+  ],
+  "tool_ok": true,
+  "tool_missing": [],
+  "tool_extra": [],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "체크인 시간은 국내 숙박·콘도·국내여행의 취소·환급 기준에 포함되지 않는 내용입니다. 예약하신 숙소 사업자나 예약 상담원에게 문의해 주세요.",
+  "guard": null
+ }
+]

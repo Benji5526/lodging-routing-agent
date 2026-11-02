@@ -1,0 +1,32 @@
+
+── 평가 30건 ──
+
+[카테고리별] 도구 / 답변 / 둘 다
+  CONDO         3/4  4/4  3/4
+  OUT_OF_SCOPE  5/5  5/5  5/5
+  PACKAGE       6/8  7/8  6/8
+  REFUND_RATE   8/8  8/8  8/8
+  SPECIAL_CASE  5/5  5/5  5/5
+
+[행동 판정] 행=기대, 열=실제
+  ANSWER   {'ANSWER': 17, 'ASK': 0, 'HANDOFF': 0}
+  ASK      {'ANSWER': 0, 'ASK': 5, 'HANDOFF': 0}
+  HANDOFF  {'ANSWER': 2, 'ASK': 0, 'HANDOFF': 6}
+
+[틀린 문항] — 여기를 읽는 것이 개선의 출발점이다
+  H-11 (분류 CONDO, 기대 HANDOFF → 실제 ANSWER)
+     도구: 기대 ['lookup_condo', 'handoff'] 실제 ['lookup_condo'] (빠짐 ['handoff'], 더 부름 [])
+     답변: 휴양콘도미니엄 기준에는 소비자의 하루 전 취소에 대한 위약금 규정이 없습니다. 예약하신 콘도 사업자나 상담원에게 취소 약관을 확인해 주세요.
+  H-12 (분류 PACKAGE, 기대 HANDOFF → 실제 ANSWER)
+     도구: 기대 ['lookup_package', 'handoff'] 실제 ['lookup_package'] (빠짐 ['handoff'], 더 부름 [])
+     빠진 사실: 여행사나 상담원 확인을 안내한다
+     답변: 인원 미달 취소의 사전 통지기일은 이 문서에 구체적으로 정해져 있지 않습니다. 다만 사전 통지기일을 지키지 않고 여행사가 취소하면 계약금 환급과 계약금의 100%(위약금) 배상 기준이 적용됩니다.
+  H-17 (분류 SPECIAL_CASE, 기대 ANSWER → 실제 ANSWER)
+     도구: 기대 ['lookup_package'] 실제 ['lookup_special_cases'] (빠짐 ['lookup_package'], 더 부름 ['lookup_special_cases'])
+     답변: 태풍으로 이동수단 이용이나 숙박업소 이용이 불가능해 숙박 당일 취소한 경우에는 계약금을 환급받으실 수 있습니다. 다만 이는 기상청의 태풍 주의보·경보 등이 발령된 경우에 적용됩니다.
+
+══ 요약 ══
+  분류 정확도          97%
+  ① 도구 호출 적절성   90.0% (27/30)
+  ② 답변 적절성        96.7% (29/30)
+  둘 다 통과           90.0% (27/30)

@@ -1,0 +1,11 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+# 내려받은 원본 PDF와 변환 결과(공개된 고시의 사본)는 제출물에서 제외한다. 정리한 근거 문서는 docs/ 에 있다.
+_download/
+_download_byeolpyo2/
+_raw/
+# 로컬 실행용 임시 파일
+_final_run.sh
+_final_done.flag

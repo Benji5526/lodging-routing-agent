@@ -1,0 +1,28 @@
+
+── 평가 10건 ──
+
+[카테고리별] 도구 / 답변 / 둘 다
+  CONDO         0/1  1/1  0/1
+  OUT_OF_SCOPE  2/2  2/2  2/2
+  PACKAGE       2/3  3/3  2/3
+  REFUND_RATE   2/2  2/2  2/2
+  SPECIAL_CASE  2/2  2/2  2/2
+
+[행동 판정] 행=기대, 열=실제
+  ANSWER   {'ANSWER': 4, 'ASK': 0, 'HANDOFF': 1}
+  ASK      {'ANSWER': 0, 'ASK': 2, 'HANDOFF': 0}
+  HANDOFF  {'ANSWER': 0, 'ASK': 1, 'HANDOFF': 2}
+
+[틀린 문항] — 여기를 읽는 것이 개선의 출발점이다
+  H-21 (분류 CONDO, 기대 HANDOFF → 실제 ASK)
+     도구: 기대 ['lookup_condo', 'handoff'] 실제 [] (빠짐 ['handoff', 'lookup_condo'], 더 부름 [])
+     답변: 휴양 콘도 예약 취소에 따른 환불 기준은 제공된 문서에 없습니다. 예약하신 콘도 사업자나 상담원에게 취소·환불 규정을 확인해 주세요.
+  H-27 (분류 PACKAGE, 기대 ANSWER → 실제 HANDOFF)
+     도구: 기대 ['lookup_package'] 실제 ['lookup_package', 'handoff'] (빠짐 [], 더 부름 ['handoff'])
+     답변: 여행사 직원의 과실로 여행 중 다치신 경우에는 여행자가 입은 손해를 배상받으실 수 있습니다. 구체적인 배상액은 이 문서에 정해져 있지 않으므로, 여행사나 상담원에게 확인해 주세요.
+
+══ 요약 ══
+  분류 정확도          100%
+  ① 도구 호출 적절성   80.0% (8/10)
+  ② 답변 적절성        100.0% (10/10)
+  둘 다 통과           80.0% (8/10)
