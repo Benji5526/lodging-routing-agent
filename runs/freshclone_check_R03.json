@@ -1,0 +1,30 @@
+[
+ {
+  "id": "R-03",
+  "category": "REFUND_RATE",
+  "question": "여름 성수기 토요일 숙박인데 제 사정으로 5일 전에 취소하려고요. 얼마가 공제되나요?",
+  "expect_action": "ANSWER",
+  "action": "ANSWER",
+  "route": "REFUND_RATE",
+  "expect_tools": [
+   "lookup_refund_table"
+  ],
+  "tools_called": [
+   "lookup_refund_table"
+  ],
+  "tool_ok": true,
+  "tool_missing": [],
+  "tool_extra": [],
+  "answer_ok": true,
+  "missing": [],
+  "violated": [],
+  "answer": "소비자 사정으로 성수기 토요일 숙박을 사용예정일 5일 전까지 취소하시면 총요금의 40% 공제 후 환급받으실 수 있습니다.",
+  "guard": {
+   "ok": true,
+   "percents_in_answer": [
+    40
+   ],
+   "unsupported": []
+  }
+ }
+]
