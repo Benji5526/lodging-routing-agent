@@ -9,3 +9,5 @@ _raw/
 # 로컬 실행용 임시 파일
 _final_run.sh
 _final_done.flag
+_regress_run.sh
+_regress_run2.sh

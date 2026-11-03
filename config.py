@@ -12,6 +12,7 @@ JUDGE_MODEL = os.environ.get("JUDGE_MODEL", ANSWER_MODEL)          # 채점기
 
 CONF_THRESHOLD = 0.5       # 분류 확신도가 이보다 낮으면 넘긴다
 MAX_TOOL_ROUNDS = 3        # 도구 호출 왕복 상한
+MAX_QUESTION_CHARS = 1000  # 이보다 긴 입력은 앞부분만 쓴다
 GUARD_RETRY = 1            # 검증 위반 시 다시 생성하는 횟수
 WORKERS = 6                # 평가 시 동시 호출 수
 

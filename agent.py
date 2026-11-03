@@ -12,8 +12,8 @@ from langgraph.graph import END, START, StateGraph
 from pydantic import BaseModel, Field
 
 import guard
-from config import (ANSWER_MODEL, CATEGORIES, CONF_THRESHOLD, GUARD_RETRY, MAX_TOOL_ROUNDS,
-                    ROUTER_MODEL)
+from config import (ANSWER_MODEL, CATEGORIES, CONF_THRESHOLD, GUARD_RETRY, MAX_QUESTION_CHARS,
+                    MAX_TOOL_ROUNDS, ROUTER_MODEL)
 from prompts import ANSWER_RULES, HANDOFF_RULES, ROUTE_GUIDE
 from tools import HANDOFF_MESSAGE, LOOKUP_BY_CATEGORY, TOOLS, handoff
 
@@ -92,9 +92,17 @@ def node_answer(state):
             break
         for call in resp.tool_calls:
             name = call["name"]
-            result = TOOLS[name].invoke(call["args"])
-            called.append(name)
-            tool_args.append({"tool": name, "args": call["args"]})
+            tool = TOOLS.get(name)
+            if tool is None:                # 모델이 없는 도구 이름을 부른 경우
+                result = {"error": f"알 수 없는 도구입니다: {name}"}
+            else:
+                try:
+                    result = tool.invoke(call["args"])
+                except Exception as e:      # 인자 형식 오류 등. 죽지 않고 모델에게 알려 고쳐 부르거나 포기하게 한다
+                    result = {"error": f"도구 호출에 실패했습니다: {type(e).__name__}"}
+            if "error" not in result:       # 성공한 호출만 기록한다(평가의 도구 집합과 화면에 쓰인다)
+                called.append(name)
+                tool_args.append({"tool": name, "args": call["args"]})
             if "evidence" in result:
                 evidence.append(result["evidence"])
                 sections.extend(result["sections"])
@@ -165,6 +173,11 @@ agent_app = build_agent()
 
 def run(question):
     """문의 한 줄을 파이프라인에 통과시킨다."""
+    question = (question or "").strip()[:MAX_QUESTION_CHARS]      # 너무 긴 입력은 앞부분만 쓴다
+    if not question:                    # 빈 입력은 모델을 부르지 않고 바로 되묻는다
+        return {"question": "", "category": "OUT_OF_SCOPE", "confidence": 0.0,
+                "route_reason": "입력이 비어 있음", "action": "ASK", "tools_called": [],
+                "tool_args": [], "answer": "문의 내용을 입력해 주세요.", "guard": None}
     out = agent_app.invoke({"question": question, "attempts": 0})
     out.setdefault("tools_called", [])
     return out
